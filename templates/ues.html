@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+        function generateText() {
+            const prompt = document.getElementById('prompt').value;
+            fetch('https://api-inference.huggingface.co/models/gpt2', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer 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'
+                },
+                body: JSON.stringify({
+                    inputs: prompt
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').textContent = data[0].generated_text;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Ask OpenAI</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/use">Use App</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Ask OpenAI</h2>
+        <p>Enter a prompt in the search box below.</p>
+        <input type="text" id="prompt" placeholder="Enter a prompt">
+        <button onclick="generateText()">Generate Text</button>
+        <p id="result"></p>
+    </main>
+    <footer>
+        <p>Copyright &copy; 2023</p>
+    </footer>
+</body>
+</html>
