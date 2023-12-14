@@ -3,6 +3,7 @@
 import unittest
 from app import app
 
+
 class BasicTests(unittest.TestCase):
 
     # 在测试前执行的设置
@@ -19,6 +20,7 @@ class BasicTests(unittest.TestCase):
     def test_about(self):
         response = self.app.get('/about')
         self.assertEqual(response.status_code, 200)
+
 
 if __name__ == "__main__":
     unittest.main()
