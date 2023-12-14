@@ -1,22 +1,12 @@
+.PHONY: install lint test
+
 install:
-	pip install --upgrade pip &&\
-		pip install -r requirements.txt
-
-test:
-	python -m pytest -vv --cov=main --cov=mylib test_*.py
-
-format:	
-	black *.py 
+	pip install -r requirements.txt
 
 lint:
-	pylint --disable=R,C --ignore-patterns=test_.*?py *.py mylib/*.py
+	flake8 --ignore=E501
 
-container-lint:
-	docker run --rm -i hadolint/hadolint < Dockerfile
+test:
+	pytest -vv
 
-refactor: format lint
-
-deploy:
-	#deploy goes here
-		
-all: install lint test format deploy
+all: install lint test
