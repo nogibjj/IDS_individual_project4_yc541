@@ -4,13 +4,16 @@ from openai import OpenAI
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def home():
     return render_template('home.html', title='Home')
 
+
 @app.route('/about')
 def about():
     return render_template('about.html', title='About Us')
+
 
 @app.route('/use')
 def use():
@@ -23,18 +26,20 @@ def search():
         query = request.form['search_query']
         client = OpenAI(
             # Replace it with your own api key
-            api_key = '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'
+            api_key='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'
         )
         response = client.chat.completions.create(
-        messages=[
-            {
-            "role": "user",
-            "content": query,
-            }
-        ],
-        model="gpt-3.5-turbo",
+            messages=[
+                {
+                    "role": "user",
+                    "content": query,
+                }
+            ],
+            model="gpt-3.5-turbo",
         )
-        return render_template('search_results.html', response=response.choices[0].message.content)
+        return render_template(
+            'search_results.html',
+            response=response.choices[0].message.content)
     return render_template('search.html')
 
 
