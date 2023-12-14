@@ -7,6 +7,6 @@ lint:
 	flake8 --ignore=E501
 
 test:
-	pytest -vv
+	python -m unittest discover -v
 
 all: install lint test
