@@ -8,5 +8,8 @@ lint:
 
 test:
 	python -m unittest discover -v
+	
+format:
+	autopep8 --in-place --aggressive --aggressive --recursive .
 
-all: install lint test
+all: install lint format test
