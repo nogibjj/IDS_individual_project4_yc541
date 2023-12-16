@@ -143,6 +143,8 @@ Here is a screenshot showing the passed Github Action:
 ## Video Demonstration
 
 A video walkthrough is provided in the `README.md`, demonstrating the application's features and deployment steps.
+https://www.loom.com/share/1de98c5e9d274bc7b7cc40f8fdfbbc68?sid=6d54c48c-454d-4681-9544-84e13eb564ed
+
 
 
 
