@@ -1,6 +1,30 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<h1>Welcome!</h1>
-<p>This is the homepage of our Flask app.</p>
+<div style="text-align: center;">
+    <h1 style="color: #4ea9de;">Welcome to Our Flask App!</h1>
+    <p>Discover the simplicity and power of Flask.</p>
+
+    <section style="margin-top: 30px;">
+        <h2 style="color: #4ea9de;">Features</h2>
+        <p>Explore the features that make our app unique:</p>
+        <ul style="list-style-type: none; padding: 0;">
+            <li>Easy to use interface</li>
+            <li>Highly customizable options</li>
+            <li>Robust and secure backend</li>
+        </ul>
+    </section>
+
+    <section style="margin-top: 30px;">
+        <h2 style="color: #4ea9de;">Get Started</h2>
+        <p>Begin your journey with our app by exploring the following links:</p>
+        <a href="{{ url_for('home') }}" style="color: #4ea9de; text-decoration: none;">Home</a> |
+        <a href="/use" style="color: #4ea9de; text-decoration: none;">Use App</a>
+    </section>
+
+    <section style="margin-top: 30px;">
+        <h2 style="color: #4ea9de;">Contact Us</h2>
+        <p>Have questions or feedback? <a href="mailto:support@ourapp.com" style="color: #4ea9de; text-decoration: none;">Email us</a>!</p>
+    </section>
+</div>
 {% endblock %}
